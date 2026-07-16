@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AbriLyric</title>
+</head>
+<body>
+<H1>AbriLyric</H1><hr>
+<h4>Info about track</h4>
+<b>Track Name: </b> <span th:text="${track.name}"></span>
+<b>Track Author: </b> <span th:text="${track.author}"></span>
+<b>Release Year: </b> <span th:text="${track.releaseYear}"></span>
+<b>Track Lyric: </b> <span th:text="${track.lyric}"></span>
+<hr>
+<h3>Delete track</h3>
+<form th:action="@{/track/delete/{id}(id=${track.id})}" method="post">
+    <input type="submit" value="Delete Track"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AbriLyric</title>
+</head>
+<body>
+<H1>AbriLyric</H1><hr>
+<h4>Popular tracks</h4>
+<div th:each="track : ${tracks}">
+    <h2 th:text="${track.name}">Track Name</h2>
+
+    <p>
+        <b>Author:</b> <span th:text="${track.author}">Author Name</span>
+    </p>
+    <p>
+        <span th:text="${track.lyric}">There will be track lyric...</span>
+    </p>
+    <p>
+        <a th:href="@{/tracks/{id}(id=${track.id})}">Info</a>
+    </p>
+</div>
+<hr>
+<h3>Add new track</h3>
+<form th:action="@{/track/add}" method="post">
+    Track name: <input type="text" name="name"/><br><br>
+    Track author: <input type="text" name="author"/><br><br>
+    Release year: <input type="number" name="releaseYear"/><br><br>
+    Track lyric: <input type="text" name="lyric"/><br><br>
+    <input type="submit" value="Add new Track"/>
+</form>
+</body>
+</html>
